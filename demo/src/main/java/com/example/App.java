@@ -18,4 +18,20 @@ public class App
         logger.info("〇test〇");
         logger.info(Configurator.getInstance().getValueByKey("key1"));
     }
+
+    public String publicMethod() {
+        return "publicMethod param is none";
+    }
+
+    public String publicMethod(String param) {
+        return "publicMethod param is " + param;
+    }
+
+    private String privateMethod() {
+        return "privateMethod param is none";
+    }
+
+    private String privateMethod(String param) {
+        return "privateMethod param is " + param;
+    }
 }

@@ -17,4 +17,24 @@ public class AppTest
     {
         assertTrue( true );
     }
+
+    @Test
+    public void testPublicMethod() {
+        // 引数なしのメソッドをテスト
+    }
+
+    @Test
+    public void testPublicMethod2() {
+        // 引数ありのメソッドをテスト
+    }
+
+    @Test
+    public void testPrivateMethod() {
+        // 引数なしのメソッドをテスト
+    }
+
+    @Test
+    public void testPrivateMethod2() {
+        // 引数ありのメソッドをテスト
+    }
 }
