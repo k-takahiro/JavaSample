@@ -19,8 +19,12 @@ public class AppTest
     }
 
     @Test
-    public void testPublicMethod() {
+    public void testPublicMethod() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         // 引数なしのメソッドをテスト
+        Class<?> clazz = Class.forName("com.example.App");
+            // 引数なしのコンストラクタを呼び出し
+            App instance2 = (App) clazz.newInstance();
+            instance2.publicMethod();
     }
 
     @Test
