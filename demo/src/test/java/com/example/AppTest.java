@@ -39,6 +39,17 @@ public class AppTest
     }
 
     @Test
+    public void testPublicMethod3() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        // 引数なしのメソッドをテスト(getMethod()でメソッドを取得)
+        
+    }
+
+    @Test
+    public void testPublicMethod4() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        // 引数ありのメソッドをテスト(getMethod()でメソッドを取得)
+    }
+
+    @Test
     public void testPrivateMethod() {
         // 引数なしのメソッドをテスト
     }
