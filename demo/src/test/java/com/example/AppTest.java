@@ -59,12 +59,21 @@ public class AppTest
     }
 
     @Test
-    public void testPrivateMethod() {
+    public void testPrivateMethod() throws ClassNotFoundException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         // 引数なしのメソッドをテスト
+        Class<?> clazz = Class.forName("com.example.App");
+        Method method = clazz.getDeclaredMethod("privateMethod", null);
+        method.setAccessible(true);
+        assertEquals("privateMethod param is none", method.invoke(new App(), null));
     }
 
     @Test
-    public void testPrivateMethod2() {
+    public void testPrivateMethod2() throws ClassNotFoundException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         // 引数ありのメソッドをテスト
+        Class<?> clazz = Class.forName("com.example.App");
+        Method method = clazz.getDeclaredMethod("privateMethod", String.class);
+        String pram = "test";
+        method.setAccessible(true);
+        assertEquals("privateMethod param is " + pram, method.invoke(new App(), pram));
     }
 }
