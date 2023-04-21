@@ -7,9 +7,21 @@ import org.slf4j.LoggerFactory;
  * Hello world!
  *
  */
-public class App 
+public class ReflectSampleApp 
 {
-    private static Logger logger = LoggerFactory.getLogger(App.class);
+    private static Logger logger = LoggerFactory.getLogger(ReflectSampleApp.class);
+
+    private String privateField = "";
+    private static String privateStaticField = "";
+
+    public void setPrivateField(String privateField) {
+        this.privateField = privateField;
+    }
+
+    public static void setPrivateStaticField(String privateStaticField) {
+        ReflectSampleApp.privateStaticField = privateStaticField;
+    }
+
     public static void main( String[] args ) throws ClassNotFoundException
     {
         System.out.println( "Hello World!" );
@@ -34,5 +46,9 @@ public class App
 
     private String privateMethod(String param) {
         return "privateMethod param is " + param;
+    }
+
+    private static String privateStaticMethod() {
+        return "privateStaticMethod param is none";
     }
 }
