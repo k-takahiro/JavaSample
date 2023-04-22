@@ -14,7 +14,6 @@ public class Configurator {
         try {
             INSTANCE = new Configurator();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

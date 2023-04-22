@@ -32,6 +32,14 @@ public class ReflectSampleApp
 
     }
 
+    public void printValue() {
+        System.out.println(privateField);
+        System.out.println(privateStaticField);
+        System.out.println(privateMethod());
+        System.out.println(privateMethod("test"));
+        System.out.println(privateStaticMethod());
+    }
+
     public String publicMethod() {
         return "publicMethod param is none";
     }

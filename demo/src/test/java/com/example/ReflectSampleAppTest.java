@@ -23,20 +23,20 @@ public class ReflectSampleAppTest
     }
 
     @Test
-    public void testPublicMethod() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public void testPublicMethod() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         // 引数なしのメソッドをテスト
         Class<?> clazz = Class.forName("com.example.ReflectSampleApp");
         // 引数なしのコンストラクタを呼び出し
-        ReflectSampleApp instance2 = (ReflectSampleApp) clazz.newInstance();
+        ReflectSampleApp instance2 = (ReflectSampleApp) clazz.getDeclaredConstructor().newInstance();
         assertEquals("publicMethod param is none", instance2.publicMethod());
     }
 
     @Test
-    public void testPublicMethod2() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public void testPublicMethod2() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         // 引数ありのメソッドをテスト
         Class<?> clazz = Class.forName("com.example.ReflectSampleApp");
         // 引数なしのコンストラクタを呼び出し
-        ReflectSampleApp instance2 = (ReflectSampleApp) clazz.newInstance();
+        ReflectSampleApp instance2 = (ReflectSampleApp) clazz.getDeclaredConstructor().newInstance();
         String pram = "test";
         assertEquals("publicMethod param is " + pram, instance2.publicMethod(pram));
     }
