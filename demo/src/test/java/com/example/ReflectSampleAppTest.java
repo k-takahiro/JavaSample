@@ -3,6 +3,7 @@ package com.example;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -106,16 +107,51 @@ public class ReflectSampleAppTest
 
     }
 
+    // 実装を変更したくない場合（テストの為にsetter,getterは本末転倒）
     @Test
-    public void testPrivateField() {
-        // privateFieldの中身を確認
+    public void testPrivateField() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+        // setup - 事前準備
+        // privateFieldに値
         ReflectSampleApp app = new ReflectSampleApp();
-        app.setPrivateField("privateFieldValue");
+        app.setPrivateField("privateFieldの値");
+
+        // exercice - テストの実行
+        //フィールドを取得。
+        Field field = ReflectSampleApp.class.getDeclaredField("privateField");
+
+        //フィールドにアクセスできるようにする。
+        field.setAccessible(true);
+
+        //フィールド名（変数名）を出力。
+        System.out.println("変数名：" + field.getName());
+
+        //フィールドの値を出力。
+        System.out.println("値：" + field.get(app));
+
+        // verify - 検証
+        assertEquals("privateFieldの値" , field.get(app));
+
+        // 後処理 - teardown
+
     }
 
     @Test
-    public void testPrivateStaticField() {
-        // privateStaticFieldの中身を確認
-        ReflectSampleApp.setPrivateStaticField("privateStaticFieldValue");
+    public void testPrivateStaticField() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+        // setup - 事前準備
+        // privateStaticFieldの値
+        ReflectSampleApp.setPrivateStaticField("privateStaticFieldの値");
+
+        // privateのメンバ変数に対してアクセスする為のパイプを用意
+        // exercice - テストの実行
+        Field field = ReflectSampleApp.class.getDeclaredField("privateStaticField");
+
+        // フィールドにアクセスできるようにする
+        field.setAccessible(true);
+
+        // verify - 検証
+        assertEquals("privateStaticFieldの値", field.get(null));
+
+
+        // 後処理 - teardown
     }
 }
