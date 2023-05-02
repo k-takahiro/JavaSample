@@ -1,7 +1,10 @@
-package com.example;
+package com.example.reflect;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.example.Configurator;
+import com.example.PostNumber;
 
 /**
  * Hello world!

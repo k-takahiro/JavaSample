@@ -2,6 +2,10 @@ package com.example;
 
 import java.lang.reflect.InvocationTargetException;
 
+import com.example.reflect.ReflectSample;
+import com.example.reflect.ReflectSample1Impl;
+import com.example.reflect.ReflectSample2Impl;
+
 public class Main {
     public static void main( String[] args ) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException
     {

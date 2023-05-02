@@ -1,4 +1,4 @@
-package com.example;
+package com.example.reflect;
 
 public class ReflectSample2Impl implements ReflectSample {
     public void hello() {
