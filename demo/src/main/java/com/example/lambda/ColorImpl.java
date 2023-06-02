@@ -6,5 +6,4 @@ public class ColorImpl implements Color {
     public void print(String str) {
         System.out.println(this.getClass() + "：" + str);
     }
-    
 }

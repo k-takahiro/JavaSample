@@ -21,11 +21,21 @@ public class LambdaSample {
         c1.print("c1");
 
         // lambdaで実装
-        Color c2 = str -> {
+        Color c2 = (String str) -> {
             System.out.println(LambdaSample.class + "：" + str);
-            System.out.println(LambdaSample.class + "：" );
         };
-        c2.print("c2");
+        c2.print("c2-1");
+
+        // 型は省略可能
+        c2 = (str) -> {
+            System.out.println(LambdaSample.class + "：" + str);
+        };
+        c2.print("c2-2");
+
+        // 引数が１つであれば小カッコも省略可能
+        // 処理が１行であれば中カッコも省略可能
+        c2 = str -> System.out.println(LambdaSample.class + "：" + str);
+        c2.print("c2-3");
 
         List<Value> list = Arrays.asList(
             new Value(1, "nakajun"),
