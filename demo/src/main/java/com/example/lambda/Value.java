@@ -2,7 +2,7 @@ package com.example.lambda;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Value implements Comparable {
+public class Value implements Comparable<Value> {
     private int index;
     private String value;
 
@@ -31,10 +31,8 @@ public class Value implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        Value v = (Value)o;
-        //return this.index - v.index; 
-        return v.index - this.index;
+    public int compareTo(Value o) {
+        return o.index - this.index;
     }
     
 }
